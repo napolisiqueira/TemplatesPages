@@ -1,0 +1,14 @@
+footer {
+    text-align: center;
+    margin: 5rem 0rem 0rem; 
+    padding : 2rem;
+    background-color: rgba(var(--secundary-color));
+    min-width: 100%;
+    color: rgb(var(--terciary-color)); 
+    box-shadow: 0px -10px 20px rgba(var(--quartenary-color), 0.6);
+    font-family: 'Monsterat', sans-serif;
+}
+
+footer p {
+    margin: 2px;
+}

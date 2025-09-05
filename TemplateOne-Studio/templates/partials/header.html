@@ -1,0 +1,27 @@
+{% load static %}
+<nav id='nav' class='navbar'>
+    <div class='title-nav'>
+        {% if site_settings.navbar_title %}
+            <a href="{% url "home:home" %}">
+                <img src="{% static "images/logo.png" %}" alt="Leticia Mourão">
+                <h1>{{ site_settings.navbar_title }}</h1>
+            </a>
+        {% else %}
+            <h1>{{ site_settigns.navbar_title }}</h1>
+        {% endif %}
+    </div>
+
+    <div class='links-nav'>
+    {% for link in navbar_links %}
+        {% if link.is_external %}
+            <li>
+                <a href="#">{{ link.name }}</a>
+            </li>
+        {% else %}
+            <li>
+                <a href="{% url link.url %}">{{ link.name }}</a>
+            </li>
+        {% endif %}
+    {% endfor %}
+</div>
+</nav>

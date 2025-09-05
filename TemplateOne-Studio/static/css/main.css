@@ -1,0 +1,15 @@
+:root {
+    --primary-color: 247, 247, 247;
+    --secundary-color: 20, 11, 56;
+    --white: 0, 0, 0;
+    --black: 0, 0, 0;
+    --terciary-color: 245, 234, 154;
+    --quartenary-color: 50,50,50;
+}
+
+html {
+    background-color: rgb(var(--primary-color));
+    color: rgb(var(--black));
+    font-family: "Cormorant", serif;  
+    scrollbar-width: none;
+}

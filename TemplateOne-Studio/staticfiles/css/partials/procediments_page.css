@@ -1,0 +1,34 @@
+.procediments-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    margin-top: 6rem;
+}
+
+.container-procediments {
+    display: grid;
+    justify-content: center;
+    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    margin: 1rem auto 10rem;
+    width: 80%;
+}
+
+.item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+.item a{
+    text-decoration: none;
+    color: inherit;
+    width: 100%;}
+
+.box {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    background-size: cover;
+    background-position: center;
+    background-image: var(--image-card-procediment);
+}

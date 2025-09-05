@@ -1,0 +1,109 @@
+{% extends "partials/base.html" %}
+{% load static %}
+{% block TitleBar %}{{ site_settings.site_name_galery }}{% endblock TitleBar %}
+
+{% block css-style %}
+        <link rel="stylesheet" href="{% static "css/partials/galery_page.css" %}">
+        <link rel="stylesheet" href="{% static "css/partials/hero_section.css" %}">
+{% endblock css-style %}
+
+{% block head %}
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.7.2/css/lightgallery.css" />
+    <script src="https://cdn.jsdelivr.net/npm/lightgallery@2.7.2/lightgallery.min.js"></script>
+{% endblock head %}
+
+<!--- FAZER HERO SECTION DO GALERY E ABOUT A PARTE NO MODELS e FAZER DESIGN COM 50vh -->
+
+
+{% block body %}
+    <section class='hero' style="--hero-bg-image-3: url({{ hero_Section3.background_image.url }});">
+        <div class='hero-section-3'>
+            <div class="hero-content-3">
+                <h1>{{ hero_Section3.heading }}</h1>
+                <p>{{ hero_Section3.subheading }}</p>
+            </div>
+        </div>
+    </section>
+
+
+    {% if gallery1 %}
+    <section class='galery'>
+        <div>
+            <h1>ESTUDIO</h1>
+        </div>
+        <div class='grid-galery'>
+            {% for photo in gallery1 %}
+            <div class='image'>
+                <a href="{{ photo.image.url }}" 
+                    data-src="{{ photo.image.url }}" 
+                    data-sub-html="
+                        <h4>{{ photo.title }}</h4>
+                ">
+                    <img src="{{ photo.image.url }}" alt="{{ photo.title }}">
+                </a>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+    {% else %}
+        <p>No photos available in this category.</p>
+    {% endif %}
+
+    {% if gallery2 %}
+    <section class='galery'>
+        <div>
+            <h1>EQUIPAMENTOS</h1>
+        </div>
+        <div class='grid-galery'>
+            {% for photo in gallery2 %}
+            <div class='image'>
+                <a href="{{ photo.image.url }}" 
+                    data-src="{{ photo.image.url }}" 
+                    data-sub-html="
+                        <h4>{{ photo.title }}</h4>
+                ">
+                    <img src="{{ photo.image.url }}" alt="{{ photo.title }}">
+                </a>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+    {% else %}
+        <p>No photos available in this category.</p>
+    {% endif %}
+    {% if gallery3 %}
+    <section class='galery'>
+        <div>
+            <h1>FOTOS</h1>
+        </div>
+        <div class='grid-galery'>
+            {% for photo in gallery3 %}
+            <div class='image'>
+                <a href="{{ photo.image.url }}" 
+                    data-src="{{ procediment.image.url }}" 
+                    data-sub-html="
+                        <h4>{{ photo.title }}</h4>
+                    ">
+                    <img src="{{ photo.image.url }}" alt="{{ photo.title }}">
+                </a>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+    {% else %}
+        <p>No photos available in this category.</p>
+    {% endif %}
+
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            lightGallery(document.getElementById('gallery-container'), {
+                selector: 'a', // Este seletor diz ao Lightbox para buscar links (<a>) dentro da galeria.
+                download: false
+            });
+        });
+    </script>
+
+
+{% endblock body %}

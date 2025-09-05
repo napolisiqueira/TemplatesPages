@@ -1,0 +1,53 @@
+.navbar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    height: 80px;
+    width: 100%;
+    z-index: 1000;
+    position: fixed;
+    background-color: transparent; 
+    transition: background-color 0.4s ease;
+    color: rgb(var(--terciary-color));
+    font-family: 'Monsterat', sans-serif;
+}
+
+.navbar .title-nav {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.navbar a {
+    display: flex;
+    flex-direction: row;
+    text-decoration: none;
+    color: rgb(var(--terciary-color));
+    align-items: center;
+}
+
+.navbar a img {
+    max-height: 50px;
+    width: auto;
+    margin-right: 10px;
+}
+
+.navbar.scrolled {
+    background-color: rgba(var(--secundary-color), 0.8);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(10px);
+}
+
+.links-nav {
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    gap: 1.5rem;
+}
+
+.links-nav a {
+    text-decoration: none;
+    color: var(--secundary-color);
+}

@@ -1,0 +1,90 @@
+.make {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 2rem 3rem;
+    margin: 0 3rem;
+    font-size: 14px;
+}
+
+.make-title {
+    width: 100%;
+    margin-top: 3rem;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.make-title h1 {
+    text-align: left;
+    font-family: "Cormorant Garamond", serif;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: rgb(var(--black));
+    margin-bottom: 1rem;
+}
+
+
+.make-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 2rem;
+    width: 100%;
+}
+
+.make-text {
+    margin: 1rem 0 0 3rem;
+    max-width: 40%;
+    height: auto;
+    text-align: left;
+    color: rgb(var(--black));
+}
+
+.make-text p {
+    font-size: 1.2rem;
+}
+
+.make-image {
+  position: relative; /* Essencial para posicionar os pseudo-elementos */
+  display: inline-block; /* Para que o contêiner se ajuste ao tamanho da imagem */
+  padding: 15px; /* Adiciona um espaço para as bordas aparecerem */
+  max-width: 40%;
+}
+
+.make-image img {
+  display: block; /* Remove o espaço extra abaixo da imagem */
+  max-width: 100%; /* Garante que a imagem seja responsiva */
+  height: auto;
+  position: relative; /* Opcional, mas pode ser útil para z-index */
+  z-index: 2; /* Garante que a imagem esteja acima dos pseudo-elementos */
+}
+
+/* Pseudo-elemento para a primeira borda (a que está por trás) */
+.make-image::before {
+  content: ''; /* Essencial para pseudo-elementos */
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 1px solid rgb(var(--black)); /* Cor e espessura da borda */
+  z-index: 1; /* Fica abaixo da imagem */
+  transform: translate(-30px, 30px); /* Desloca a borda para a direita e para baixo */
+}
+
+/* Pseudo-elemento para a segunda borda (a que está mais para trás ou superior/esquerda) */
+.make-image::after {
+  content: ''; /* Essencial para pseudo-elementos */
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 1px solid rgb(var(--black)); /* Outra cor e espessura para diferenciar */
+  z-index: 0; /* Fica abaixo de tudo */
+  transform: translate(30px, -15px); /* Desloca mais e para cima/esquerda */
+}

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{% block TitleBar %}{{ site_settings.site_name_home }}{% endblock TitleBar %}</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="{%static 'css/remedy.css' %}">
+    <link rel="stylesheet" href="{%static 'css/main.css' %}">
+    {% if site_settings.show_navbar %}
+    <link rel="stylesheet" href="{%static 'css/partials/header.css' %}">
+    {% endif %}
+    {% if site_settings.show_footer %}
+    <link rel="stylesheet" href="{%static 'css/partials/footer.css' %}">
+    {% endif %}
+    <link rel="stylesheet" href="{%static 'css/untils.css' %}">
+    
+    <link rel="shortcut icon" href="{{ site_settings.favicon.url }}" type="image/x-icon">
+
+    {% block css-style %}{% endblock css-style %}
+    <!--<link rel="shortcut icon" href="{{ favicon }}" type="image/webp">    favicon--> 
+
+    {% block head %}{% endblock head %}
+
+  </head>
+
+  <body>
+    {% if site_settings.show_navbar %}
+    <header>
+      {% include 'partials/header.html' %}
+    </header>
+    {% endif %}
+
+    {% block body %}{% endblock body %}
+      
+    {% if site_settings.show_navbar %}  
+    <script src="{% static "js/scrolled.js" %}"></script>
+    {% endif %}
+    {% block js-scripts %} {% endblock js-scripts %}
+    
+  </body>
+  {% if site_settings.show_footer %}
+  <footer>
+    {% include "partials/footer.html" %}
+  </footer>
+  {% endif %}
+</html>

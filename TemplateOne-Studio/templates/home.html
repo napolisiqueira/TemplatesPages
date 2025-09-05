@@ -1,0 +1,184 @@
+{% extends "partials/base.html" %}
+{% load static %}
+{% block TitleBar %}{{ site_settings.site_name_home }}{% endblock TitleBar %}
+{% block css-style %}
+    {% if site_settings.show_hero_section_1 %}
+    <link rel="stylesheet" href="{% static "css/partials/hero_section.css" %}">
+    {% endif %}
+    {% if site_settings.show_about_section %}
+    <link rel="stylesheet" href="{% static "css/partials/about_section.css" %}">
+    {% endif %}
+    {% if site_settings.show_galery_section %}
+    <link rel="stylesheet" href="{% static "css/partials/galery_section.css" %}">
+    {% endif %}
+    {% if site_settings.show_equipaments_section %}
+    <link rel="stylesheet" href="{% static "css/partials/equipaments_section.css" %}">
+    {% endif %}
+
+    <link rel="stylesheet" href="{% static "css/partials/make_section.css" %}">
+
+
+    <link rel="stylesheet" href="{% static "css/partials/procediments.css" %}">
+
+
+
+{% endblock css-style %}
+
+{% block head %}
+
+    <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightslider/1.1.6/js/lightslider.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightslider/1.1.6/css/lightslider.min.css"/>
+
+{% endblock head %}
+
+{% block body %}
+
+{% if site_settings.show_hero_section_1 %}
+    <section class='hero' style="--hero-bg-image-1: url({{ hero_Section1.background_image.url }});">
+        <div class='hero-section'>
+            <div class="hero-content">
+                <h1>{{ hero_Section1.heading }}</h1>
+                <p>{{ hero_Section1.subheading }}</p>
+            </div>
+        </div>
+    </section>
+{% endif %}
+
+
+<section class="make">
+
+    <div class='make-title'>
+        <h1>OQUE FAZEMOS</h1>
+    </div>
+
+    <div class='make-container'>
+
+        <div class='make-text'>
+            <p>Lorem ipsum dolor sit amet. Et vero ratione in nulla libero vel maxime aperiam a labore quidem aut quos sequi in ipsa laboriosam. Sit repudiandae sapiente rem repellat obcaecati qui natus corporis nam consectetur asperiores id vero voluptatem et quia cumque ea excepturi distinctio!
+
+Et ipsam repellat in dicta molestiae aut dolores iure est aspernatur voluptatem sit consequatur autem ea asperiores nisi. Et quidem nulla et facilis vitae aut molestiae eius ea autem quod. In quae voluptate vel laboriosam laboriosam nam dolores nihil! Id ipsam molestias ea natus quae ad maiores perspiciatis At accusantium minus qui illum dolor et excepturi voluptatem in unde excepturi.</p>
+        </div>
+
+        <div class='make-image'>
+            <img src="{{ hero_Section1.background_image.url }}" alt="">
+        </div>
+
+
+    </div>
+
+</section>
+
+
+{% if site_settings.show_procediments_section %}
+<section class='procediments'>
+    <div>
+        <h1>PROCEDIMENTOS</h1>
+    </div>
+<div class="slider">
+    <button id="prev" class="btn">
+        <i class="las la-angle-left"></i>
+    </button>
+        <div class="card-content">
+            <!-- Card -->
+            {% for procediment in procediments %}
+                <div class="card">
+                    <div class="card-img">
+                        <img src="{{ procediment.image.url }}" alt="{{ procediment.name }}">
+                        <img class="blur" src="{{ equipament.image.url }}" alt="{{ procediment.name }}">
+                    </div>
+                    <div class="card-text">
+                        <h2>{{ procediment.name }}</h2>
+                        <p>{{ procediment.description }}<p>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    <button id="next" class="btn">
+        <i class="las la-angle-right"></i>
+    </button>
+</div>
+</section>
+{% endif %}
+
+{% if site_settings.show_hero_section_2 %}
+    <section class='hero' style="--hero-bg-image-2: url({{ hero_Section2.background_image.url }});">
+        <div class='hero-section-2'>
+            <div class="hero-content-2">
+                <h1>{{ hero_Section2.heading }}</h1>
+                <p>{{ hero_Section2.subheading }}</p>
+            </div>
+        </div>
+    </section>
+{% endif %}
+
+
+
+
+
+
+
+<section class="about">
+
+    <div class='about-title'>
+        <h1>OQUE FAZEMOS</h1>
+    </div>
+
+    <div class='about-container'>
+
+        
+        <div class='about-image'>
+            <img src="{{ hero_Section1.background_image.url }}" alt="">
+        </div>
+        
+        <div class='about-text'>
+            <p>Lorem ipsum dolor sit amet. Et vero ratione in nulla libero vel maxime aperiam a labore quidem aut quos sequi in ipsa laboriosam. Sit repudiandae sapiente rem repellat obcaecati qui natus corporis nam consectetur asperiores id vero voluptatem et quia cumque ea excepturi distinctio!
+
+Et ipsam repellat in dicta molestiae aut dolores iure est aspernatur voluptatem sit consequatur autem ea asperiores nisi. Et quidem nulla et facilis vitae aut molestiae eius ea autem quod. In quae voluptate vel laboriosam laboriosam nam dolores nihil! Id ipsam molestias ea natus quae ad maiores perspiciatis At accusantium minus qui illum dolor et excepturi voluptatem in unde excepturi.</p>
+        </div>
+
+    </div>
+
+</section>
+
+
+
+
+
+
+
+
+{% if site_settings.show_galery_section %}
+<section class='galery'>
+    <div>
+        <h1>GALERIA</h1>
+    </div>
+    <div class='grid-galery'>
+        {% for photo in galery %}
+        <div class='image'>
+            <img src="{{ photo.image.url }}" alt="{{ photo.title }}">
+        </div>
+        {% endfor %}
+    </div>
+</section>
+{% endif %}
+
+
+{% if site_settings.whatsapp_link %}
+<div class='Whatsapp'>
+    <a href="{{ site_settings.whatsapp_link }}">
+        <img src="{% static "icons/whatsapp.png" %}" alt="Entre em contato via WhatsApp">
+    </a>
+</div>
+{% endif %}
+
+{% if site_settings.show_equipaments_section %}
+    {% block js-scripts %}
+        <script src="{% static "js/equipaments_slider.js" %}"></script> 
+        <script src="{% static "js/procediments.js" %}"></script>
+    {% endblock js-scripts %}
+{% endif %}
+
+{% endblock body %}

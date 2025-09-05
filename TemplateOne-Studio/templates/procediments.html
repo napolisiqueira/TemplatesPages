@@ -1,0 +1,68 @@
+{% extends "partials/base.html" %}
+{% load static %}
+
+
+{% block TitleBar %}{{ site_settings.site_name_home }}{% endblock TitleBar %}
+{% block css-style %}
+    {% if site_settings.show_hero_section_1 %}
+    <link rel="stylesheet" href="{% static "css/partials/hero_section.css" %}">
+    <link rel="stylesheet" href="{% static "css/partials/procediments.css" %}"> 
+    <link rel="stylesheet" href="{% static "css/partials/procediments_page.css" %}">
+    {% endif %}
+
+
+{% endblock css-style %}
+
+{% block head %}
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.7.2/css/lightgallery.css" />
+    <script src="https://cdn.jsdelivr.net/npm/lightgallery@2.7.2/lightgallery.min.js"></script>
+{% endblock head %}
+
+{% block body %}
+
+    {% if site_settings.show_hero_section_1 %}
+    <section class='hero' style="--hero-bg-image-1: url({{  hero_Section1.background_image.url }});">
+        <div class='hero-section'>
+            <div class="hero-content">
+                <h1>{{ hero_Section1.heading }}</h1>
+                <p>{{ hero_Section1.subheading }}</p>
+            </div>
+        </div>  
+    </section>
+    {% endif %}
+
+    <section class='procediments-page'>
+        <h1>PROCEDIMENTOS</h1>    
+            <div class="container-procediments my-gallery" id="gallery-container">
+                {% for procediment in procediments %}
+                    <div class="item">
+                        <a 
+                            href="{{ procediment.image.url }}" 
+                            data-src="{{ procediment.image.url }}" 
+                            data-sub-html="
+                                <div class='custom-lightbox'>
+                                    <h4>{{ procediment.name }}</h4>
+                                    <p class='price'>R${{ procediment.price }}</p>
+                                    <p>{{ procediment.description }}</p>                                
+                                </div>
+                            ">
+                            <img class="box" src="{{ procediment.image.url }}" alt="{{ procediment.name }}">
+                        </a>
+                        <h2 class="marvel-page">{{ procediment.name }}</h2>
+                        <h1 class='procediment-price'>R${{ procediment.price }}</h1>
+                    </div>
+                {% endfor %}
+            </div>
+    </section>
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            lightGallery(document.getElementById('gallery-container'), {
+                selector: 'a', // Este seletor diz ao Lightbox para buscar links (<a>) dentro da galeria.
+                download: false
+            });
+        });
+    </script>
+
+{% endblock body %}

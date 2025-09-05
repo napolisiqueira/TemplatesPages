@@ -1,0 +1,91 @@
+.about {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    text-align: center;
+    padding: 2rem 3rem;
+    font-size: 14px;
+    background-color: rgb(var(--secundary-color));
+    box-shadow: 0 20px 30px rgba(var(--black), 0.8);
+}
+
+.about-title {
+    width: 100%;
+    margin-top: 3rem;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.about-title h1 {
+    font-family: "Cormorant Garamond", serif;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: rgb(var(--terciary-color));
+    margin: 0 2rem 1rem 0;
+}
+
+
+.about-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    margin: 0 3rem 3rem 3rem;
+    gap: 2rem;
+}
+
+.about-text {
+    margin: 1rem 0 0 3rem;
+    max-width: 40%;
+    height: auto;
+    text-align: left;
+    color: rgb(var(--terciary-color));
+}
+
+.about-text p {
+    font-size: 1.2rem;
+}
+
+.about-image {
+  position: relative; /* Essencial para posicionar os pseudo-elementos */
+  display: inline-block; /* Para que o contêiner se ajuste ao tamanho da imagem */
+  padding: 15px; /* Adiciona um espaço para as bordas aparecerem */
+  max-width: 40%;
+}
+
+.about-image img {
+  display: block; /* Remove o espaço extra abaixo da imagem */
+  max-width: 100%; /* Garante que a imagem seja responsiva */
+  height: auto;
+  position: relative; /* Opcional, mas pode ser útil para z-index */
+  z-index: 2; /* Garante que a imagem esteja acima dos pseudo-elementos */
+}
+
+/* Pseudo-elemento para a primeira borda (a que está por trás) */
+.about-image::before {
+  content: ''; /* Essencial para pseudo-elementos */
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 1px solid rgb(var(--terciary-color)); /* Cor e espessura da borda */
+  z-index: 1; /* Fica abaixo da imagem */
+  transform: translate(-30px, 30px); /* Desloca a borda para a direita e para baixo */
+}
+
+/* Pseudo-elemento para a segunda borda (a que está mais para trás ou superior/esquerda) */
+.about-image::after {
+  content: ''; /* Essencial para pseudo-elementos */
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 1px solid rgb(var(--terciary-color)); /* Outra cor e espessura para diferenciar */
+  z-index: 0; /* Fica abaixo de tudo */
+  transform: translate(30px, -15px); /* Desloca mais e para cima/esquerda */
+}

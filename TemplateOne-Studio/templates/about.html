@@ -1,0 +1,48 @@
+{% extends "partials/base.html" %}
+
+{% load static %}
+{% block TitleBar %}{{ site_settings.site_name_about }}{% endblock TitleBar %}
+
+{% block css-style %}
+        <link rel="stylesheet" href="{% static "css/partials/about_page.css" %}">
+        <link rel="stylesheet" href="{% static "css/partials/hero_section.css" %}">
+{% endblock css-style %}
+
+
+{% block body %}
+
+    <section class='hero' style="--hero-bg-image-3: url({{ hero_Section4.background_image.url }});">
+        <div class='hero-section-3'>
+            <div class="hero-content-3">
+                <h1>{{ hero_Section4.heading }}</h1>
+                <p>{{ hero_Section4.subheading }}</p>
+            </div>
+        </div>
+
+    </section>
+
+
+    <section class='about'>
+        <div class='image'>
+            <img src="{{ about.picture.url }}" alt="{{ about.name }}">
+        </div>
+        <div class='text'>
+            <h1>{{ about.name }}</h1>
+            <p>
+                {{ about.content }}
+            </p>
+        </div>
+
+        {% if things %}
+        <div class="cards">
+            {% for thing in things %}
+            <div class="card">
+                <h3>{{ thing.title }}</h3>
+                <p>{{ thing.description }}</p>
+            </div>
+            {% endfor %}
+        </div>
+        {% endif %}
+    </section>
+
+{% endblock body %}
