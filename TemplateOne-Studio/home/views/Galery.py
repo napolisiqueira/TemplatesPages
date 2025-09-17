@@ -1,17 +1,17 @@
 from django.shortcuts import render
-from home.models import Galery, heroSection3
+from home.models import GalleryImage, Hero_Section3
 
 def galery(request):
-    hero_Section3 = heroSection3.objects.get()
-    gallery1 = Galery.objects.filter(tag__nome='Estudio')
-    gallery2 = Galery.objects.filter(tag__nome='Equipamentos')
-    gallery3 = Galery.objects.filter(tag__nome='Fotos')
+    hero_section3 = Hero_Section3.objects.get()
+    gallery1 = GalleryImage.objects.filter(tag__name='estudio')
+    gallery2 = GalleryImage.objects.filter(tag__name='equipamentos')
+    gallery3 = GalleryImage.objects.filter(tag__name='fotos')
 
     context = {
         'gallery1': gallery1,
         'gallery2': gallery2,
         'gallery3': gallery3,
-        'hero_Section3': hero_Section3,
+        'Hero_Section3': hero_section3,
     }
 
     return render(request, 'galery.html', context)

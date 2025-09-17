@@ -56,9 +56,19 @@
   max-width: 40%;
 }
 
+.about-image h1 {
+  margin: 2rem 0 2rem 0;
+  font-family: "Cormorant Garamond", serif;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: rgb(var(--terciary-color));
+
+}
+
 .about-image img {
-  display: block; /* Remove o espaço extra abaixo da imagem */
   max-width: 100%; /* Garante que a imagem seja responsiva */
+  aspect-ratio: 1/1;
+  object-fit: cover;
   height: auto;
   position: relative; /* Opcional, mas pode ser útil para z-index */
   z-index: 2; /* Garante que a imagem esteja acima dos pseudo-elementos */
@@ -88,4 +98,30 @@
   border: 1px solid rgb(var(--terciary-color)); /* Outra cor e espessura para diferenciar */
   z-index: 0; /* Fica abaixo de tudo */
   transform: translate(30px, -15px); /* Desloca mais e para cima/esquerda */
+}
+
+
+@media (max-width: 999px) {
+    .about-container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    
+    .about-text, .about-image {
+        max-width: 90%;
+        margin: 1rem 0;
+    }
+    
+    .about-text {
+        margin: 1rem 0;
+    }
+    
+    .about-title {
+        justify-content: center;
+    }
+    
+    .about-title h1 {
+        margin: 0 0 1rem 0;
+    }
 }

@@ -1,118 +1,132 @@
+# seu_app/admin.py
+
 from django.contrib import admin
-from .models import About, Galery, heroSection, heroSection2, heroSection3, heroSection4, Procediment, AboutThings, Tag
+from django.core.exceptions import ValidationError
+from .models import (
+    Hero_Section1, Hero_Section2, Hero_Section3, Hero_Section4, Hero_Section5,
+    What_We_Do, Procediments, About_Us, Metrics, GalleryTag, GalleryImage
+)
 
-@admin.register(About)
-class AboutAdmin(admin.ModelAdmin):
-    # Organiza os campos na tela de edição
+class MetricsInline(admin.TabularInline):
+    model = Metrics
+    extra = 1
+    max_num = 5
+    fields = ['title', 'description']
+
+
+@admin.register(Hero_Section1)
+class HeroSectionAdmin(admin.ModelAdmin):
+    list_display = ('heading', 'subheading')
     fieldsets = (
-        ('Sobre a Pessoa', {'fields': ('name', 'content', 'picture')}),
+        (None, {'fields': ('heading', 'subheading', 'background_image')}),
     )
-    # Exibe os campos na lista de objetos
+
+    def has_add_permission(self, request):
+        return not Hero_Section1.objects.exists()
+
+    def has_delete_permission(self, request, obj=None):
+        return False
+
+@admin.register(Hero_Section2)
+class HeroSection2Admin(admin.ModelAdmin):
+    list_display = ('heading', 'subheading')
+    fieldsets = (
+        (None, {'fields': ('heading', 'subheading', 'background_image')}),
+    )
+
+    def has_add_permission(self, request):
+        return not Hero_Section2.objects.exists()
+
+    def has_delete_permission(self, request, obj=None):
+        return False
+
+@admin.register(Hero_Section3)
+class HeroSection3Admin(admin.ModelAdmin):
+    list_display = ('heading', 'subheading')
+    fieldsets = (
+        (None, {'fields': ('heading', 'subheading', 'background_image')}),
+    )
+
+    def has_add_permission(self, request):
+        return not Hero_Section3.objects.exists()
+
+    def has_delete_permission(self, request, obj=None):
+        return False
+        
+@admin.register(Hero_Section4)
+class HeroSection4Admin(admin.ModelAdmin):
+    list_display = ('heading', 'subheading')
+    fieldsets = (
+        (None, {'fields': ('heading', 'subheading', 'background_image')}),
+    )
+
+    def has_add_permission(self, request):
+        return not Hero_Section4.objects.exists()
+
+    def has_delete_permission(self, request, obj=None):
+        return False
+
+@admin.register(Hero_Section5)
+class HeroSection5Admin(admin.ModelAdmin):
+    list_display = ('heading', 'subheading')
+    fieldsets = (
+        (None, {'fields': ('heading', 'subheading', 'background_image')}),
+    )
+
+    def has_add_permission(self, request):
+        return not Hero_Section5.objects.exists()
+
+    def has_delete_permission(self, request, obj=None):
+        return False
+
+@admin.register(What_We_Do)
+class WhatWeDoAdmin(admin.ModelAdmin):
+    list_display = ('title', 'description')
+    search_fields = ('title',)
+
+    def has_add_permission(self, request):
+        return not About_Us.objects.exists()
+    
+    def has_delete_permission(self, request, obj=None):
+        return False
+
+@admin.register(Procediments)
+class ProcedimentsAdmin(admin.ModelAdmin):
+    list_display = ('title', 'price', 'image')
+    list_filter = ('price',)
+    search_fields = ('title',)
+
+    def get_form(self, request, obj=None, **kwargs):
+        if obj and obj.name:
+            self.form.base_fields['title'].initial = obj.name
+        return super().get_form(request, obj, **kwargs)
+
+@admin.register(About_Us)
+class AboutUsAdmin(admin.ModelAdmin):
+    inlines = [MetricsInline] 
+    list_display = ('name', 'image')
+
+    def has_add_permission(self, request):
+        return not About_Us.objects.exists()
+    
+    def has_delete_permission(self, request, obj=None):
+        return False
+
+
+@admin.register(GalleryTag)
+class GalleryTagAdmin(admin.ModelAdmin):
+    """Admin para as tags da galeria."""
     list_display = ('name',)
-
-    # Limita o modelo a uma única instância (singleton)
-    def has_add_permission(self, request):
-        return About.objects.count() == 0
-
-@admin.register(Galery)
-class GaleryAdmin(admin.ModelAdmin):
-    # Exibe os campos na lista de objetos
-    list_display = ('title', 'image')
-
-    # Limita a galeria a no máximo 50 fotos
-    def has_add_permission(self, request):
-        return Galery.objects.count() < 50
-
-@admin.register(heroSection)
-class heroSectionAdmin(admin.ModelAdmin):
-    # Organiza os campos na tela de edição
-    fieldsets = (
-        ('Primeira Seção Hero', {'fields': ('heading', 'subheading', 'background_image')}),
-    )
-    # Exibe os campos na lista de objetos
-    list_display = ('heading',)
     
-    # Limita o modelo a uma única instância
     def has_add_permission(self, request):
-        return heroSection.objects.count() == 0
+        return GalleryTag.objects.count() < len(GalleryTag.TAG_CHOICES)
 
-@admin.register(heroSection2)
-class heroSection2Admin(admin.ModelAdmin):
-    # Organiza os campos na tela de edição
-    fieldsets = (
-        ('Segunda Seção Hero', {'fields': ('heading', 'subheading', 'background_image')}),
-    )
-    # Exibe os campos na lista de objetos
-    list_display = ('heading',)
+    def has_delete_permission(self, request, obj=None):
+        return True
 
-    # Limita o modelo a uma única instância
-    def has_add_permission(self, request):
-        return heroSection2.objects.count() == 0
-    
-@admin.register(heroSection3)
-class heroSection3Admin(admin.ModelAdmin):
-    # Organiza os campos na tela de edição
-    fieldsets = (
-        ('Seção Hero - Galeria', {'fields': ('heading', 'subheading', 'background_image')}),
-    )
-    # Exibe os campos na lista de objetos
-    list_display = ('heading',)
-
-    # Limita o modelo a uma única instância
-    def has_add_permission(self, request):
-        return heroSection3.objects.count() == 0
-    
-
-@admin.register(heroSection4)
-class heroSection4Admin(admin.ModelAdmin):
-    # Organiza os campos na tela de edição
-    fieldsets = (
-        ('Seção Hero - Sobre Nós', {'fields': ('heading', 'subheading', 'background_image')}),
-    )
-    # Exibe os campos na lista de objetos
-    list_display = ('heading',)
-
-    # Limita o modelo a uma única instância
-    def has_add_permission(self, request):
-        return heroSection4.objects.count() == 0
-
-    
-@admin.register(Procediment)
-class ProcedimentAdmin(admin.ModelAdmin):
-    # Organiza os campos na tela de edição
-    fieldsets = (
-        ('Procedimento', {'fields': ('name', 'price', 'description', 'image')}),
-    )
-    # Exibe os campos na lista de objetos
-    list_display = ('name',)
-    
-    # Limita o modelo a no máximo 10 procedimentos
-    def has_add_permission(self, request):
-        return Procediment.objects.count() < 10
-
-@admin.register(AboutThings)
-class AboutThingsAdmin(admin.ModelAdmin):
-    # Organiza os campos na tela de edição
-    fieldsets = (
-        ('Coisas Sobre Nós', {'fields': ('title', 'description')}),
-    )
-    # Exibe os campos na lista de objetos
-    list_display = ('title',)
-    
-    # Limita o modelo a no máximo 10 itens
-    def has_add_permission(self, request):
-        return AboutThings.objects.count() < 5
-    
-
-@admin.register(Tag)
-class TagAdmin(admin.ModelAdmin):
-    # Organiza os campos na tela de edição
-    fieldsets = (
-        ('Tag', {'fields': ('nome',)}),
-    )
-    # Exibe os campos na lista de objetos
-    list_display = ('nome',)
-    
-    # Limita o modelo a no máximo 20 tags
-    def has_add_permission(self, request):
-        return Tag.objects.count() < 3
+@admin.register(GalleryImage)
+class GalleryImageAdmin(admin.ModelAdmin):
+    """Admin para as imagens da galeria."""
+    list_display = ('title', 'tag')
+    list_filter = ('tag',)
+    search_fields = ('title',)

@@ -3,6 +3,7 @@ from django.core.exceptions import ValidationError
 
 class SiteSettings(models.Model):
     # Campos de Título da Página
+    navbar_title = models.CharField(max_length=50, default='Lash Design')
     site_name_home = models.CharField(max_length=100, default='Lash Design')
     site_name_about = models.CharField(max_length=100, default='Lash Design - Sobre')
     site_name_galery = models.CharField(max_length=100, default='Lash Design - Galeria')
@@ -11,15 +12,17 @@ class SiteSettings(models.Model):
 
     show_navbar = models.BooleanField(default=True, verbose_name='Exibir Barra de Navegação')
     show_hero_section_1 = models.BooleanField(default=True, verbose_name='Exibir Seção "Hero 1"')
+    show_make_section = models.BooleanField(default=True, verbose_name='Exibir Seção "O Que Fazemos"')
+    show_procediments_section = models.BooleanField(default=True, verbose_name='Exibir Seção "Procedimentos"')
+    show_hero_section_2 = models.BooleanField(default=True, verbose_name='Exibir Seção "Hero 2"')
     show_about_section = models.BooleanField(default=True, verbose_name='Exibir Seção "Sobre"')
     show_galery_section = models.BooleanField(default=True, verbose_name='Exibir Seção "Galeria"')
-    show_hero_section_2 = models.BooleanField(default=True, verbose_name='Exibir Seção "Hero 2"')
-    show_procediments_section = models.BooleanField(default=True, verbose_name='Exibir Seção "Procedimentos"')
+    show_hero_section_3 = models.BooleanField(default=True, verbose_name='Exibir Seção "Hero 3"')
+    show_about_section_2 = models.BooleanField(default=True, verbose_name='Exibir Seção "Página Sobre"')
+    show_hero_section_4 = models.BooleanField(default=True, verbose_name='Exibir Seção "Hero 4"')
+    show_galery_procediments_section = models.BooleanField(default=True, verbose_name='Exibir Seção "Galeria de Procedimentos"')
     show_footer = models.BooleanField(default=True, verbose_name='Exibir Rodapé')
 
-
-    navbar_title = models.CharField(max_length=50, default='Lash Design')
-    
     class Meta:
         verbose_name = 'Configurações do Site'
         verbose_name_plural = 'Configurações do Site'

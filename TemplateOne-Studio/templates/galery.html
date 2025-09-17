@@ -16,11 +16,11 @@
 
 
 {% block body %}
-    <section class='hero' style="--hero-bg-image-3: url({{ hero_Section3.background_image.url }});">
+    <section class='hero' style="--hero-bg-image-3: url({{ Hero_Section3.background_image.url }});">
         <div class='hero-section-3'>
             <div class="hero-content-3">
-                <h1>{{ hero_Section3.heading }}</h1>
-                <p>{{ hero_Section3.subheading }}</p>
+                <h1>{{ Hero_Section3.heading }}</h1>
+                <p>{{ Hero_Section3.subheading }}</p>
             </div>
         </div>
     </section>
@@ -29,7 +29,8 @@
     {% if gallery1 %}
     <section class='galery'>
         <div>
-            <h1>ESTUDIO</h1>
+            <h1 class='title-galery'>ESTUDIO</h1>
+            <hr>
         </div>
         <div class='grid-galery'>
             {% for photo in gallery1 %}
@@ -52,7 +53,8 @@
     {% if gallery2 %}
     <section class='galery'>
         <div>
-            <h1>EQUIPAMENTOS</h1>
+            <h1 class='title-galery'>EQUIPAMENTOS</h1>
+            <hr>
         </div>
         <div class='grid-galery'>
             {% for photo in gallery2 %}
@@ -74,7 +76,8 @@
     {% if gallery3 %}
     <section class='galery'>
         <div>
-            <h1>FOTOS</h1>
+            <h1 class='title-galery'>FOTOS</h1>
+            <hr>
         </div>
         <div class='grid-galery'>
             {% for photo in gallery3 %}
@@ -105,5 +108,8 @@
         });
     </script>
 
+    {% block js-scripts %}
+        <script src="{% static "js/scrolledGallery.js"%}"></script>
+    {% endblock js-scripts %}
 
 {% endblock body %}

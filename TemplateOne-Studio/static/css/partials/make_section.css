@@ -88,3 +88,22 @@
   z-index: 0; /* Fica abaixo de tudo */
   transform: translate(30px, -15px); /* Desloca mais e para cima/esquerda */
 }
+
+
+
+@media (max-width: 999px) {
+    .make-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .make-text, .make-image {
+        max-width: 100%;
+        margin: 0;
+    }
+
+    .make-text {
+        margin-bottom: 2rem;
+        text-align: center;
+    }
+}

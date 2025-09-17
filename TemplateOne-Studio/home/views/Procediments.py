@@ -1,13 +1,13 @@
 from django.shortcuts import render
-from home.models import About, Galery, heroSection, heroSection2, Procediment
+from home.models import About_Us, GalleryImage, Hero_Section5, Procediments
 
 def procediments(request):
-    hero_Section1 = heroSection.objects.get()
-    procediments = Procediment.objects.all()
+    hero_section5 = Hero_Section5.objects.get()
+    procediments = Procediments.objects.all()
 
     context = {
-        'hero_Section1': hero_Section1,
-        'procediments': procediments,
+        'Hero_Section5': hero_section5,
+        'Procediments': procediments,
     }
 
     return render(request, 'procediments.html', context)

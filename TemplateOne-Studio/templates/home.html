@@ -14,12 +14,12 @@
     {% if site_settings.show_equipaments_section %}
     <link rel="stylesheet" href="{% static "css/partials/equipaments_section.css" %}">
     {% endif %}
-
+    {% if site_settings.show_make_section %}
     <link rel="stylesheet" href="{% static "css/partials/make_section.css" %}">
-
-
+    {% endif %}
+    {% if site_settings.show_procediments_section %}
     <link rel="stylesheet" href="{% static "css/partials/procediments.css" %}">
-
+    {% endif %}
 
 
 {% endblock css-style %}
@@ -36,40 +36,48 @@
 
 {% block body %}
 
+
+
+
+
+
 {% if site_settings.show_hero_section_1 %}
-    <section class='hero' style="--hero-bg-image-1: url({{ hero_Section1.background_image.url }});">
+    <section class='hero' style="--hero-bg-image-1: url({{ Hero_Section1.background_image.url }});">
         <div class='hero-section'>
             <div class="hero-content">
-                <h1>{{ hero_Section1.heading }}</h1>
-                <p>{{ hero_Section1.subheading }}</p>
+                <h1>{{ Hero_Section1.heading }}</h1>
+                <p>{{ Hero_Section1.subheading }}</p>
             </div>
         </div>
     </section>
 {% endif %}
 
 
-<section class="make">
 
+
+
+
+
+{% if site_settings.show_make_section %}
+<section class="make">
     <div class='make-title'>
         <h1>OQUE FAZEMOS</h1>
     </div>
-
     <div class='make-container'>
-
         <div class='make-text'>
-            <p>Lorem ipsum dolor sit amet. Et vero ratione in nulla libero vel maxime aperiam a labore quidem aut quos sequi in ipsa laboriosam. Sit repudiandae sapiente rem repellat obcaecati qui natus corporis nam consectetur asperiores id vero voluptatem et quia cumque ea excepturi distinctio!
-
-Et ipsam repellat in dicta molestiae aut dolores iure est aspernatur voluptatem sit consequatur autem ea asperiores nisi. Et quidem nulla et facilis vitae aut molestiae eius ea autem quod. In quae voluptate vel laboriosam laboriosam nam dolores nihil! Id ipsam molestias ea natus quae ad maiores perspiciatis At accusantium minus qui illum dolor et excepturi voluptatem in unde excepturi.</p>
+            <p>{{ What_We_Do.description }}</p>
         </div>
-
         <div class='make-image'>
-            <img src="{{ hero_Section1.background_image.url }}" alt="">
+            <img src="{{ What_We_Do.image.url }}" alt="{{ What_We_Do.title }}">
         </div>
-
-
     </div>
-
 </section>
+{% endif %}
+
+
+
+
+
 
 
 {% if site_settings.show_procediments_section %}
@@ -83,11 +91,32 @@ Et ipsam repellat in dicta molestiae aut dolores iure est aspernatur voluptatem 
     </button>
         <div class="card-content">
             <!-- Card -->
-            {% for procediment in procediments %}
+            {% for procediment in Procediments %}
                 <div class="card">
                     <div class="card-img">
                         <img src="{{ procediment.image.url }}" alt="{{ procediment.name }}">
-                        <img class="blur" src="{{ equipament.image.url }}" alt="{{ procediment.name }}">
+                    </div>
+                    <div class="card-text">
+                        <h2>{{ procediment.name }}</h2>
+                        <p>{{ procediment.description }}<p>
+                    </div>
+                </div>
+            {% endfor %}
+                        {% for procediment in Procediments %}
+                <div class="card">
+                    <div class="card-img">
+                        <img src="{{ procediment.image.url }}" alt="{{ procediment.name }}">
+                    </div>
+                    <div class="card-text">
+                        <h2>{{ procediment.name }}</h2>
+                        <p>{{ procediment.description }}<p>
+                    </div>
+                </div>
+            {% endfor %}
+            {% for procediment in Procediments %}
+                <div class="card">
+                    <div class="card-img">
+                        <img src="{{ procediment.image.url }}" alt="{{ procediment.name }}">
                     </div>
                     <div class="card-text">
                         <h2>{{ procediment.name }}</h2>
@@ -103,12 +132,17 @@ Et ipsam repellat in dicta molestiae aut dolores iure est aspernatur voluptatem 
 </section>
 {% endif %}
 
+
+
+
+
+
 {% if site_settings.show_hero_section_2 %}
-    <section class='hero' style="--hero-bg-image-2: url({{ hero_Section2.background_image.url }});">
+    <section class='hero' style="--hero-bg-image-2: url({{ Hero_Section2.background_image.url }});">
         <div class='hero-section-2'>
             <div class="hero-content-2">
-                <h1>{{ hero_Section2.heading }}</h1>
-                <p>{{ hero_Section2.subheading }}</p>
+                <h1>{{ Hero_Section2.heading }}</h1>
+                <p>{{ Hero_Section2.subheading }}</p>
             </div>
         </div>
     </section>
@@ -119,30 +153,22 @@ Et ipsam repellat in dicta molestiae aut dolores iure est aspernatur voluptatem 
 
 
 
-
+{% if site_settings.show_about_section %}
 <section class="about">
-
     <div class='about-title'>
-        <h1>OQUE FAZEMOS</h1>
+        <h1>SOBRE NÓS</h1>
     </div>
-
     <div class='about-container'>
-
-        
         <div class='about-image'>
-            <img src="{{ hero_Section1.background_image.url }}" alt="">
+            <img src="{{ About_Us.image.url }}" alt="{{ About_Us.name }}">
+            <h1>{{ About_Us.name }}</h1>
         </div>
-        
         <div class='about-text'>
-            <p>Lorem ipsum dolor sit amet. Et vero ratione in nulla libero vel maxime aperiam a labore quidem aut quos sequi in ipsa laboriosam. Sit repudiandae sapiente rem repellat obcaecati qui natus corporis nam consectetur asperiores id vero voluptatem et quia cumque ea excepturi distinctio!
-
-Et ipsam repellat in dicta molestiae aut dolores iure est aspernatur voluptatem sit consequatur autem ea asperiores nisi. Et quidem nulla et facilis vitae aut molestiae eius ea autem quod. In quae voluptate vel laboriosam laboriosam nam dolores nihil! Id ipsam molestias ea natus quae ad maiores perspiciatis At accusantium minus qui illum dolor et excepturi voluptatem in unde excepturi.</p>
+            <p>{{ About_Us.description }}</p>
         </div>
-
     </div>
-
 </section>
-
+{% endif %}
 
 
 
@@ -156,7 +182,7 @@ Et ipsam repellat in dicta molestiae aut dolores iure est aspernatur voluptatem 
         <h1>GALERIA</h1>
     </div>
     <div class='grid-galery'>
-        {% for photo in galery %}
+        {% for photo in GalleryImage %}
         <div class='image'>
             <img src="{{ photo.image.url }}" alt="{{ photo.title }}">
         </div>
@@ -174,11 +200,5 @@ Et ipsam repellat in dicta molestiae aut dolores iure est aspernatur voluptatem 
 </div>
 {% endif %}
 
-{% if site_settings.show_equipaments_section %}
-    {% block js-scripts %}
-        <script src="{% static "js/equipaments_slider.js" %}"></script> 
-        <script src="{% static "js/procediments.js" %}"></script>
-    {% endblock js-scripts %}
-{% endif %}
-
+<script src="{% static "js/procediments.js" %}"></script>
 {% endblock body %}

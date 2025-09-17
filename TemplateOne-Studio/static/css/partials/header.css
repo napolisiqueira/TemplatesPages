@@ -26,6 +26,13 @@
     text-decoration: none;
     color: rgb(var(--terciary-color));
     align-items: center;
+    transition: color 0.3s ease, transform 0.3s ease;
+    animation: startPage 0.8s ease-in-out;
+}
+
+.navbar a:hover {
+    color: rgba(var(--terciary-color), 0.8);
+    transform: scale(1.05);
 }
 
 .navbar a img {
@@ -50,4 +57,93 @@
 .links-nav a {
     text-decoration: none;
     color: var(--secundary-color);
+}
+
+
+@keyframes startPage {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+@media (max-width: 999px) {
+    
+    .title-nav {
+        max-height: 90%;
+        max-width: 50%;
+    }
+
+    .title-nav h1 {
+        font-size: 1.5rem;
+    }
+
+    .ham-menu {
+        height: 50px;
+        width: 40px;
+        margin: auto 1rem auto;
+        position: relative;
+    }
+    .ham-menu span {
+        height: 5px;
+        width: 100%;
+        background-color: rgb(var(--terciary-color));
+        border-radius: 25px;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        transition: .3s ease;
+    }
+    
+    .ham-menu span:nth-child(1) {
+        top: 25%;
+    }
+    .ham-menu span:nth-child(3) {
+        top: 75%;
+    }
+    .ham-menu.active span {
+        background-color: white;
+        z-index: 1001;
+    }
+    .ham-menu.active span:nth-child(1) {
+        top: 50%;
+        transform: translate(-50%, -50%) rotate(45deg);
+    }
+    .ham-menu.active span:nth-child(2) {
+        opacity: 0;
+    }
+    .ham-menu.active span:nth-child(3) {
+        top: 50%;
+        transform: translate(-50%, -50%) rotate(-45deg);
+    }
+
+
+    .links-nav {
+        background-color: rgba(var(--secundary-color));
+        height: 100vh;
+        width: 100%;
+        max-width: 80%;
+        position: fixed;
+        top: 0;
+        right: -100vw;
+        display: flex;
+        flex-direction: column;
+        align-items: center;    
+        justify-content: space-between;
+        text-align: center;
+        font-size: 3rem;
+        transition: .3s ease;
+        padding: 6rem 0;
+        font-size: medium;
+    }
+
+    .links-nav.active {
+        right: 0;
+    }
 }

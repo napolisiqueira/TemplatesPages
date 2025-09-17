@@ -11,38 +11,42 @@
 
 {% block body %}
 
-    <section class='hero' style="--hero-bg-image-3: url({{ hero_Section4.background_image.url }});">
+    <section class='hero' style="--hero-bg-image-3: url({{ Hero_Section4.background_image.url }});">
         <div class='hero-section-3'>
             <div class="hero-content-3">
-                <h1>{{ hero_Section4.heading }}</h1>
-                <p>{{ hero_Section4.subheading }}</p>
+                <h1>{{ Hero_Section4.heading }}</h1>
+                <p>{{ Hero_Section4.subheading }}</p>
             </div>
         </div>
 
     </section>
 
 
-    <section class='about'>
+    <section class='about section'>
         <div class='image'>
-            <img src="{{ about.picture.url }}" alt="{{ about.name }}">
+            <img src="{{ About_Us.image.url }}" alt="{{ About_Us.name }}">
         </div>
         <div class='text'>
-            <h1>{{ about.name }}</h1>
+            <h1>{{ About_Us.name }}</h1>
             <p>
-                {{ about.content }}
+                {{ About_Us.description }}
             </p>
         </div>
 
-        {% if things %}
+        {% if About_Us.metrics_cards.all %}
         <div class="cards">
-            {% for thing in things %}
+            {% for metrics in About_Us.metrics_cards.all %}
             <div class="card">
-                <h3>{{ thing.title }}</h3>
-                <p>{{ thing.description }}</p>
+                <h3>{{ metrics.title }}</h3>
+                <p>{{ metrics.description }}</p>
             </div>
             {% endfor %}
         </div>
         {% endif %}
     </section>
 
+
+    {% block js-scripts %}
+        <script src="{% static "js/scrolledActiveSection.js" %}"></script>
+    {% endblock js-scripts %}
 {% endblock body %}

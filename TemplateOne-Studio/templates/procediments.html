@@ -21,34 +21,34 @@
 {% block body %}
 
     {% if site_settings.show_hero_section_1 %}
-    <section class='hero' style="--hero-bg-image-1: url({{  hero_Section1.background_image.url }});">
+    <section class='hero' style="--hero-bg-image-1: url({{  Hero_Section5.background_image.url }});">
         <div class='hero-section'>
             <div class="hero-content">
-                <h1>{{ hero_Section1.heading }}</h1>
-                <p>{{ hero_Section1.subheading }}</p>
+                <h1>{{ Hero_Section5.heading }}</h1>
+                <p>{{ Hero_Section5.subheading }}</p>
             </div>
-        </div>  
+        </div>
     </section>
     {% endif %}
 
     <section class='procediments-page'>
         <h1>PROCEDIMENTOS</h1>    
             <div class="container-procediments my-gallery" id="gallery-container">
-                {% for procediment in procediments %}
+                {% for procediment in Procediments %}
                     <div class="item">
                         <a 
                             href="{{ procediment.image.url }}" 
                             data-src="{{ procediment.image.url }}" 
                             data-sub-html="
                                 <div class='custom-lightbox'>
-                                    <h4>{{ procediment.name }}</h4>
-                                    <p class='price'>R${{ procediment.price }}</p>
+                                    <h3>{{ procediment.title }}</h3>
+                                    <h4 class='price'>R${{ procediment.price }}</h4>
                                     <p>{{ procediment.description }}</p>                                
                                 </div>
                             ">
-                            <img class="box" src="{{ procediment.image.url }}" alt="{{ procediment.name }}">
+                            <img class="box" src="{{ procediment.image.url }}" alt="{{ procediment.title }}">
                         </a>
-                        <h2 class="marvel-page">{{ procediment.name }}</h2>
+                        <h2 class="marvel-page">{{ procediment.title }}</h2>
                         <h1 class='procediment-price'>R${{ procediment.price }}</h1>
                     </div>
                 {% endfor %}
