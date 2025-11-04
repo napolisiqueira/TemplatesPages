@@ -1,0 +1,360 @@
+/* Estilos específicos para o dashboard de voluntários */
+.dashboard {
+    display: flex;
+    min-height: 100vh;
+    background-color: var(--color-background);
+}
+
+/* Sidebar */
+.sidebar {
+    width: 260px;
+    background-color: var(--color-white);
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    height: 100vh;
+}
+
+.sidebar__header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.sidebar__logo {
+    width: 120px;
+    height: auto;
+    margin-bottom: 1rem;
+}
+
+.sidebar__title {
+    font-size: 1.2rem;
+    color: var(--color-primary);
+    font-weight: 600;
+}
+
+.sidebar__nav {
+    flex-grow: 1;
+}
+
+.sidebar__link {
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    margin-bottom: 0.5rem;
+    color: var(--color-text);
+    text-decoration: none;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.sidebar__link:hover {
+    background-color: var(--color-background);
+    color: var(--color-primary);
+}
+
+.sidebar__link.active {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+}
+
+.sidebar__icon {
+    margin-right: 1rem;
+    font-size: 1.2rem;
+}
+
+.sidebar__footer {
+    border-top: 1px solid var(--color-border);
+    padding-top: 1rem;
+}
+
+/* Main Content */
+.dashboard__main {
+    flex-grow: 1;
+    margin-left: 260px;
+    padding: 2rem;
+}
+
+.dashboard__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.dashboard__welcome h2 {
+    font-size: 1.8rem;
+    color: var(--color-primary);
+    margin-bottom: 0.5rem;
+}
+
+.dashboard__welcome p {
+    color: var(--color-text-light);
+}
+
+.dashboard__actions {
+    display: flex;
+    gap: 1rem;
+}
+
+/* Schedule Cards */
+.schedule-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.schedule-card {
+    background-color: var(--color-white);
+    border-radius: 12px;
+    padding: 1.5rem;
+    display: flex;
+    gap: 1.5rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.schedule-card__date {
+    text-align: center;
+    min-width: 60px;
+}
+
+.schedule-card__day {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--color-primary);
+    display: block;
+}
+
+.schedule-card__month {
+    font-size: 1rem;
+    color: var(--color-text-light);
+    text-transform: uppercase;
+}
+
+.schedule-card__content h4 {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    color: var(--color-text);
+}
+
+.schedule-card__content p {
+    color: var(--color-text-light);
+    margin-bottom: 1rem;
+}
+
+.schedule-card__status {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.875rem;
+}
+
+.schedule-card__status--confirmed {
+    background-color: var(--color-success-light);
+    color: var(--color-success);
+}
+
+.schedule-card__status--pending {
+    background-color: var(--color-warning-light);
+    color: var(--color-warning);
+}
+
+.schedule-card__status--optional {
+    background-color: var(--color-info-light);
+    color: var(--color-info);
+}
+
+/* Tasks */
+.task-item {
+    background-color: var(--color-white);
+    border-radius: 8px;
+    padding: 1rem;
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    transition: all 0.3s ease;
+}
+
+.task-item__checkbox {
+    position: relative;
+    width: 24px;
+    height: 24px;
+}
+
+.task-item__checkbox input {
+    opacity: 0;
+    position: absolute;
+}
+
+.task-item__check {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 24px;
+    height: 24px;
+    border: 2px solid var(--color-border);
+    border-radius: 6px;
+    transition: all 0.3s ease;
+}
+
+.task-item__checkbox input:checked + .task-item__check {
+    background-color: var(--color-primary);
+    border-color: var(--color-primary);
+}
+
+.task-item__checkbox input:checked + .task-item__check::after {
+    content: '✓';
+    position: absolute;
+    color: white;
+    font-size: 16px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.task-item__content {
+    flex-grow: 1;
+}
+
+.task-item__content h4 {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+    color: var(--color-text);
+}
+
+.task-item__content p {
+    color: var(--color-text-light);
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+}
+
+.task-item__due {
+    font-size: 0.8rem;
+    color: var(--color-text-light);
+}
+
+.task-item__priority {
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.875rem;
+    text-transform: capitalize;
+}
+
+.task-item__priority--high {
+    background-color: var(--color-danger-light);
+    color: var(--color-danger);
+}
+
+.task-item__priority--medium {
+    background-color: var(--color-warning-light);
+    color: var(--color-warning);
+}
+
+.task-item__priority--low {
+    background-color: var(--color-success-light);
+    color: var(--color-success);
+}
+
+/* Activities */
+.activity-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.activity-item {
+    background-color: var(--color-white);
+    border-radius: 8px;
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.activity-item__icon {
+    width: 40px;
+    height: 40px;
+    background-color: var(--color-background);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+}
+
+.activity-item__content h4 {
+    font-size: 1.1rem;
+    margin-bottom: 0.25rem;
+    color: var(--color-text);
+}
+
+.activity-item__content p {
+    color: var(--color-text-light);
+    font-size: 0.9rem;
+    margin-bottom: 0.25rem;
+}
+
+.activity-item__time {
+    font-size: 0.8rem;
+    color: var(--color-text-light);
+}
+
+/* Section Styles */
+.dashboard__section {
+    margin-bottom: 2rem;
+}
+
+.dashboard__section-title {
+    font-size: 1.4rem;
+    color: var(--color-text);
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+}
+
+/* Task Completion Animation */
+.task-item--completed .task-item__content {
+    text-decoration: line-through;
+    color: var(--color-text-light);
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .sidebar {
+        width: 200px;
+    }
+    
+    .dashboard__main {
+        margin-left: 200px;
+    }
+}
+
+@media (max-width: 768px) {
+    .dashboard {
+        flex-direction: column;
+    }
+    
+    .sidebar {
+        width: 100%;
+        height: auto;
+        position: relative;
+        padding: 1rem;
+    }
+    
+    .dashboard__main {
+        margin-left: 0;
+        padding: 1rem;
+    }
+    
+    .dashboard__header {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+    }
+    
+    .schedule-grid {
+        grid-template-columns: 1fr;
+    }
+}

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Newsletter - Instituto Real Canino</title>
+    <link rel="stylesheet" href="assets/css/remedy.css">
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/utils.css">
+    <link rel="stylesheet" href="assets/css/pages/newsletter.css">
+</head>
+<body>
+    <header class="site-header">
+        <nav class="navbar">
+            <ul class="navbar__menu">
+                <li class="navbar__item"><a href="index.html" class="navbar__link">Home</a></li>
+                <li class="navbar__item"><a href="how_to_help.html" class="navbar__link">Como Ajudar</a></li>
+                <li class="navbar__item"><a href="index.html#quem-somos" class="navbar__link">Quem somos</a></li>
+                <li class="navbar__item"><a href="activities.html" class="navbar__link">Atividades</a></li>
+                <li class="navbar__item"><a href="login.html" class="navbar__link">Login</a></li>
+            </ul>
+            <button class="navbar__toggle" aria-label="Toggle navigation menu">
+                <span class="navbar__toggle-bar"></span>
+                <span class="navbar__toggle-bar"></span>
+                <span class="navbar__toggle-bar"></span>
+            </button>
+            <div class="navbar__brand">
+                <a href="index.html" class="navbar__logo-link">
+                    <img src="assets/img/logo.png" alt="Logo Instituto Real Canino" class="navbar__logo-image">
+                    <h1 class="navbar__title">INSTITUTO REAL CANINO</h1>
+                </a>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <section class="newsletter-cta-page">
+            <div class="newsletter-cta-page__content">
+                <h1 class="newsletter-cta-page__title">Receba novidades e histórias inspiradoras!</h1>
+                <p class="newsletter-cta-page__subtitle">Assine nossa newsletter e fique por dentro de tudo que acontece no Instituto Real Canino.</p>
+                <form class="newsletter-form" id="newsletterForm" autocomplete="off">
+                    <input type="email" class="newsletter-form__input" id="newsletterEmail" name="email" placeholder="Seu e-mail" required>
+                    <button type="submit" class="btn btn--primary newsletter-form__button">Inscrever-se</button>
+                </form>
+                <div class="newsletter-form__success" id="newsletterSuccess" style="display:none;">
+                    <h2>Muito obrigado pela inscrição!</h2>
+                    <p>Agora você receberá nossas novidades em primeira mão.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer__content">
+            <div class="footer__info">
+                <p class="footer__credit">Feito com 🖤 por <strong>Cibelly Lima</strong></p>
+                <p class="footer__legal">Instituto Regularizado de acordo com Código Civil Brasileiro e na Lei nº 9.790/1999</p>
+                <address class="footer__contact">
+                    <p class="footer__address">Rua Brasil, 1996 - Vila Real / SP- São Paulo</p>
+                    <p class="footer__phone">Telefone: (11) 22334-5566</p>
+                    <p class="footer__email">Email: institutorealcanino@org.com.br</p>
+                    <p class="footer__note">Entre em contato caso haja uma dúvida.</p>
+                </address>
+            </div>
+            <nav class="footer__nav">
+                <p class="footer__nav-title">MENU</p>
+                <ul class="footer__menu">
+                    <li class="footer__item"><a href="index.html" class="footer__link">Home</a></li>
+                    <li class="footer__item"><a href="how_to_help.html" class="footer__link">Como Ajudar</a></li>
+                    <li class="footer__item"><a href="index.html#quem-somos" class="footer__link">Quem somos</a></li>
+                    <li class="footer__item"><a href="activities.html" class="footer__link">Atividades</a></li>
+                    <li class="footer__item"><a href="login.html" class="footer__link">Login</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="footer__newsletter">
+            <p class="footer__newsletter-text">Se inscreva na <strong>💌 Newsletter do Instituto Real Canino</strong> <a href="newsletter.html" class="footer__newsletter-link">clicando aqui.</a></p>
+        </div>
+    </footer>
+    <script src="assets/js/newsletter.js"></script>
+</body>
+</html>

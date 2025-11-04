@@ -1,0 +1,94 @@
+/* Newsletter CTA Page
+   ========================================================================== */
+.newsletter-cta-page {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(120deg, rgb(var(--color-primary)) 60%, rgb(var(--color-quarternary)) 100%);
+    color: rgb(var(--color-neutral-light));
+    padding: 0 2rem;
+}
+
+.newsletter-cta-page__content {
+    background: rgba(255,255,255,0.07);
+    box-shadow: 0 8px 32px 0 rgba(var(--color-black),0.25);
+    border-radius: 24px;
+    padding: 3rem 2.5rem 2.5rem 2.5rem;
+    max-width: 420px;
+    width: 100%;
+    text-align: center;
+    backdrop-filter: blur(6px);
+}
+
+.newsletter-cta-page__title {
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin-bottom: 1.2rem;
+    color: rgb(var(--color-neutral-light));
+}
+
+.newsletter-cta-page__subtitle {
+    font-size: 1.15rem;
+    margin-bottom: 2.2rem;
+    color: rgba(var(--color-neutral-light), 0.9);
+}
+
+.newsletter-form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+    justify-content: center;
+}
+
+.newsletter-form__input {
+    flex: 1;
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+    border: none;
+    font-size: 1rem;
+    font-family: var(--font-primary);
+    outline: none;
+    background: rgba(255,255,255,0.95);
+    color: rgb(var(--color-quarternary));
+    box-shadow: 0 2px 8px rgba(var(--color-black),0.07);
+    transition: box-shadow 0.2s;
+}
+
+.newsletter-form__input:focus {
+    box-shadow: 0 4px 16px rgba(var(--color-primary),0.15);
+}
+
+.newsletter-form__button {
+    min-width: 120px;
+    font-size: 1rem;
+    font-weight: 700;
+    border-radius: 8px;
+}
+
+.newsletter-form__success {
+    padding: 2rem 0 1rem 0;
+    color: rgb(var(--color-neutral-light));
+    animation: fadeIn 0.7s ease;
+}
+
+.newsletter-form__success h2 {
+    font-size: 2rem;
+    font-weight: 800;
+    margin-bottom: 0.5rem;
+}
+
+.newsletter-form__success p {
+    font-size: 1.1rem;
+    opacity: 0.9;
+}
+
+@media (max-width: 600px) {
+    .newsletter-cta-page__content {
+        padding: 2rem 1rem;
+    }
+    .newsletter-cta-page__title {
+        font-size: 1.5rem;
+    }
+}

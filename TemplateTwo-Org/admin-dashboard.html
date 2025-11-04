@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Administrativo - Instituto Real Canino</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Encode+Sans+Semi+Condensed:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="assets/css/remedy.css">
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/pages/admin-dashboard.css">
+    <link rel="stylesheet" href="assets/css/utils.css">
+</head>
+<body class="dashboard">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <div class="sidebar__header">
+            <img src="assets/img/logo.png" alt="Logo" class="sidebar__logo">
+            <h1 class="sidebar__title">Painel Admin</h1>
+        </div>
+        
+        <nav class="sidebar__nav">
+            <a href="#overview" class="sidebar__link active">
+                <span class="sidebar__icon">📊</span>
+                Visão Geral
+            </a>
+            <a href="#animals" class="sidebar__link">
+                <span class="sidebar__icon">🐕</span>
+                Animais
+            </a>
+            <a href="#volunteers" class="sidebar__link">
+                <span class="sidebar__icon">👥</span>
+                Voluntários
+            </a>
+            <a href="#donations" class="sidebar__link">
+                <span class="sidebar__icon">💰</span>
+                Doações
+            </a>
+            <a href="#events" class="sidebar__link">
+                <span class="sidebar__icon">📅</span>
+                Eventos
+            </a>
+            <a href="#reports" class="sidebar__link">
+                <span class="sidebar__icon">📝</span>
+                Relatórios
+            </a>
+        </nav>
+
+        <div class="sidebar__footer">
+            <a href="index.html" class="sidebar__link">
+                <span class="sidebar__icon">🏠</span>
+                Voltar ao Site
+            </a>
+            <a href="login.html" class="sidebar__link">
+                <span class="sidebar__icon">👋</span>
+                Sair
+            </a>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="dashboard__main">
+        <header class="dashboard__header">
+            <div class="dashboard__welcome">
+                <h2>Bem-vindo(a), Administrador</h2>
+                <p>Última atualização: há 5 minutos</p>
+            </div>
+            <div class="dashboard__actions">
+                <button class="btn btn--primary">Nova Atividade</button>
+                <button class="btn btn--secondary">Exportar Relatório</button>
+            </div>
+        </header>
+
+        <!-- Overview Section -->
+        <section class="dashboard__section" id="overview">
+            <div class="dashboard__grid">
+                <div class="stat-card">
+                    <div class="stat-card__content">
+                        <h3 class="stat-card__title">Total de Animais</h3>
+                        <p class="stat-card__number">156</p>
+                        <span class="stat-card__trend stat-card__trend--up">↑ 12% este mês</span>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-card__content">
+                        <h3 class="stat-card__title">Adoções do Mês</h3>
+                        <p class="stat-card__number">24</p>
+                        <span class="stat-card__trend stat-card__trend--up">↑ 8% vs último mês</span>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-card__content">
+                        <h3 class="stat-card__title">Voluntários Ativos</h3>
+                        <p class="stat-card__number">45</p>
+                        <span class="stat-card__trend stat-card__trend--stable">→ Estável</span>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-card__content">
+                        <h3 class="stat-card__title">Doações Recebidas</h3>
+                        <p class="stat-card__number">R$ 12.450</p>
+                        <span class="stat-card__trend stat-card__trend--up">↑ 15% este mês</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="dashboard__charts">
+                <div class="chart-card">
+                    <h3 class="chart-card__title">Histórico de Adoções</h3>
+                    <div class="chart-card__content" id="adoptionsChart"></div>
+                </div>
+
+                <div class="chart-card">
+                    <h3 class="chart-card__title">Distribuição de Despesas</h3>
+                    <div class="chart-card__content" id="expensesChart"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Recent Activities -->
+        <section class="dashboard__section">
+            <h3 class="dashboard__section-title">Atividades Recentes</h3>
+            <div class="activity-list">
+                <div class="activity-item">
+                    <div class="activity-item__icon">🐕</div>
+                    <div class="activity-item__content">
+                        <h4>Novo Resgate Realizado</h4>
+                        <p>Cachorro resgatado na região da Vila Real</p>
+                        <span class="activity-item__time">Há 2 horas</span>
+                    </div>
+                </div>
+
+                <div class="activity-item">
+                    <div class="activity-item__icon">💝</div>
+                    <div class="activity-item__content">
+                        <h4>Doação Recebida</h4>
+                        <p>Nova doação de R$ 500,00 recebida</p>
+                        <span class="activity-item__time">Há 3 horas</span>
+                    </div>
+                </div>
+
+                <div class="activity-item">
+                    <div class="activity-item__icon">📝</div>
+                    <div class="activity-item__content">
+                        <h4>Adoção Finalizada</h4>
+                        <p>Thor encontrou um novo lar!</p>
+                        <span class="activity-item__time">Há 5 horas</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+</body>
+</html>

@@ -1,0 +1,219 @@
+/* Login Page
+   ========================================================================== */
+.login-page {
+    min-height: calc(100vh - 80px);
+    background: linear-gradient(135deg, rgba(var(--color-primary), 0.95), rgba(var(--color-quarternary), 0.95)),
+                url('../img/login-bg.webp');
+    background-size: cover;
+    background-position: center;
+    padding: 4rem 1rem;
+}
+
+.login-container {
+    max-width: 450px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+/* Login Box
+   ========================================================================== */
+.login-box {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 24px;
+    padding: 2.5rem;
+    box-shadow: 0 20px 40px rgba(var(--color-black), 0.2);
+    backdrop-filter: blur(10px);
+}
+
+.login-box__header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.login-box__logo {
+    width: 80px;
+    height: auto;
+    margin-bottom: 1.5rem;
+}
+
+.login-box__title {
+    font-size: 1.8rem;
+    color: rgb(var(--color-quarternary));
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+}
+
+.login-box__subtitle {
+    color: rgb(var(--color-neutral-dark));
+    font-size: 1rem;
+    opacity: 0.8;
+}
+
+/* Login Form
+   ========================================================================== */
+.login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.login-form__group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.login-form__label {
+    color: rgb(var(--color-quarternary));
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.login-form__input {
+    padding: 0.75rem 1rem;
+    border: 2px solid rgba(var(--color-neutral-dark), 0.1);
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.login-form__input:focus {
+    border-color: rgba(var(--color-primary), 0.5);
+    box-shadow: 0 0 0 4px rgba(var(--color-primary), 0.1);
+    outline: none;
+}
+
+.login-form__password-container {
+    position: relative;
+}
+
+.login-form__toggle-password {
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    color: rgb(var(--color-neutral-dark));
+    opacity: 0.5;
+    transition: opacity 0.3s ease;
+}
+
+.login-form__toggle-password:hover {
+    opacity: 0.8;
+}
+
+.login-form__eye-icon {
+    display: block;
+    width: 20px;
+    height: 20px;
+    background-image: url('../img/eye.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.login-form__options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.9rem;
+}
+
+.login-form__remember {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: rgb(var(--color-neutral-dark));
+    cursor: pointer;
+}
+
+.login-form__forgot {
+    color: rgb(var(--color-primary));
+    text-decoration: none;
+    transition: opacity 0.3s ease;
+}
+
+.login-form__forgot:hover {
+    opacity: 0.8;
+}
+
+.login-form__submit {
+    width: 100%;
+    margin-top: 1rem;
+}
+
+/* Login Box Footer
+   ========================================================================== */
+.login-box__footer {
+    margin-top: 2rem;
+    text-align: center;
+    border-top: 1px solid rgba(var(--color-neutral-dark), 0.1);
+    padding-top: 1.5rem;
+}
+
+.login-box__help {
+    font-size: 0.9rem;
+    color: rgb(var(--color-neutral-dark));
+}
+
+.login-box__help-link {
+    color: rgb(var(--color-primary));
+    text-decoration: none;
+    transition: opacity 0.3s ease;
+}
+
+.login-box__help-link:hover {
+    opacity: 0.8;
+}
+
+/* Error States
+   ========================================================================== */
+.login-form__input.error {
+    border-color: rgb(var(--color-danger));
+}
+
+.login-form__error {
+    color: rgb(var(--color-danger));
+    font-size: 0.85rem;
+    margin-top: 0.25rem;
+}
+
+/* Loading State
+   ========================================================================== */
+.login-form__submit.loading {
+    position: relative;
+    color: transparent !important;
+}
+
+.login-form__submit.loading::after {
+    content: '';
+    position: absolute;
+    width: 1.25rem;
+    height: 1.25rem;
+    border: 2px solid;
+    border-radius: 50%;
+    border-color: currentColor transparent transparent;
+    animation: button-loading 0.8s ease infinite;
+}
+
+@keyframes button-loading {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Responsive Styles
+   ========================================================================== */
+@media (max-width: 500px) {
+    .login-box {
+        padding: 2rem 1.5rem;
+    }
+
+    .login-form__options {
+        flex-direction: column;
+        gap: 1rem;
+        align-items: flex-start;
+    }
+}

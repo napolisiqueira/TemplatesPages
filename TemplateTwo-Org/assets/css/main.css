@@ -1,0 +1,332 @@
+/*
+* Instituto Real Canino - Main Styles
+* Version: 1.0.0
+*/
+
+/* Custom Properties
+   ========================================================================== */
+:root {
+    /* Colors */
+    --color-primary: 0, 143, 14;
+    --color-secondary: 31, 101, 225;
+    --color-tertiary: 245, 234, 154;
+    --color-quarternary:  6, 64, 43;
+    --color-success: 165, 224, 110;
+    --color-danger: 245, 27, 1;
+    --color-neutral-light: 247, 247, 247;
+    --color-neutral-dark: 50, 50, 50;
+    --color-black: 0, 0, 0;
+
+    /* Typography */
+    --font-primary: "Encode Sans Semi Condensed", sans-serif;
+    --font-secondary: "Poppins", sans-serif;
+}
+
+/* Font Styles
+   ========================================================================== */
+.encode-sans-semi-condensed-thin {
+  font-family: "Encode Sans Semi Condensed", sans-serif;
+  font-weight: 100;
+  font-style: normal;
+}
+
+.encode-sans-semi-condensed-extralight {
+  font-family: "Encode Sans Semi Condensed", sans-serif;
+  font-weight: 200;
+  font-style: normal;
+}
+
+.encode-sans-semi-condensed-light {
+  font-family: "Encode Sans Semi Condensed", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+}
+
+.encode-sans-semi-condensed-regular {
+  font-family: "Encode Sans Semi Condensed", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.encode-sans-semi-condensed-medium {
+  font-family: "Encode Sans Semi Condensed", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+}
+
+.encode-sans-semi-condensed-semibold {
+  font-family: "Encode Sans Semi Condensed", sans-serif;
+  font-weight: 600;
+  font-style: normal;
+}
+
+.encode-sans-semi-condensed-bold {
+  font-family: "Encode Sans Semi Condensed", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.encode-sans-semi-condensed-extrabold {
+  font-family: "Encode Sans Semi Condensed", sans-serif;
+  font-weight: 800;
+  font-style: normal;
+}
+
+.encode-sans-semi-condensed-black {
+  font-family: "Encode Sans Semi Condensed", sans-serif;
+  font-weight: 900;
+  font-style: normal;
+}
+
+
+/* Base Styles
+   ========================================================================== */
+html {
+    background-color: rgb(var(--color-neutral-light));
+    color: rgb(var(--color-black));
+    font-family: var(--font-primary);
+    scrollbar-width: none;
+    min-height: 100vh;
+    scroll-behavior: smooth;
+}
+
+
+/* Footer
+   ========================================================================== */
+.site-footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: rgba(var(--color-quarternary));
+    width: 100%;
+    color: rgb(var(--color-neutral-light));
+    box-shadow: 0 -20px 30px rgba(var(--color-black), 0.4);
+    font-family: var(--font-secondary);
+    gap: 2rem;
+    padding: 2rem 0rem 2rem 0rem;
+}
+
+.footer__content {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    text-align: left;
+    gap: 5rem;
+}
+
+.footer__info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.footer__info p {
+    margin: 2px;
+    font-size: 1rem;
+}
+
+.footer__nav {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.footer__menu {
+    list-style: none;
+}
+
+.footer__link {
+    color: rgb(var(--color-neutral-light));
+    text-decoration: none;
+    transition: opacity 0.3s ease;
+}
+
+.footer__link:hover {
+    opacity: 0.8;
+}
+
+.footer__newsletter {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: rgb(var(--color-black));
+    width: 100%;
+    min-height: 2rem;
+    text-align: center;
+}
+
+.footer__newsletter-link {
+    color: rgb(var(--color-neutral-light));
+    text-decoration: underline;
+    transition: opacity 0.3s ease;
+}
+
+.footer__newsletter-link:hover {
+    opacity: 0.8;
+}
+
+/* Navigation
+   ========================================================================== */
+.navbar {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 80px;
+    width: 100vw;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 9999;
+    background-color: rgba(var(--color-primary), 0.9);
+    color: rgb(var(--color-neutral-light));
+    font-family: var(--font-primary);
+    box-shadow: 0 5px 20px rgba(var(--color-black), 0.6);
+    backdrop-filter: blur(10px);
+}
+
+body {
+    scroll-padding-top: 90px;
+}
+
+.navbar__brand {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.navbar__logo-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: rgb(var(--color-neutral-light));
+    transition: color 0.3s ease, transform 0.3s ease;
+    animation: startPage 0.8s ease-in-out;
+}
+
+.navbar__logo-link:hover {
+    color: rgba(var(--color-neutral-light), 0.8);
+    transform: scale(1.05);
+}
+
+.navbar__logo-image {
+    max-height: 50px;
+    width: auto;
+    margin-right: 10px;
+}
+
+.navbar__menu {
+    display: flex;
+    list-style: none;
+    gap: 1.5rem;
+}
+
+.navbar__link {
+    text-decoration: none;
+    color: rgb(var(--color-neutral-light));
+    transition: color 0.3s ease;
+}
+
+.navbar__link:hover {
+    color: rgba(var(--color-neutral-light), 0.8);
+}
+
+.navbar__toggle {
+    display: none;
+    }
+
+@keyframes startPage {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Navigation
+   ========================================================================== */
+@media (max-width: 999px) {
+    .navbar__brand {
+        max-height: 90%;
+        max-width: 50%;
+    }
+
+    .navbar__title {
+        font-size: 1.5rem;
+    }
+
+    /* Mobile Toggle Button */
+    .navbar__toggle {
+        display: block;
+        height: 50px;
+        width: 40px;
+        margin: auto 1rem;
+        position: relative;
+        cursor: pointer;
+        background: none;
+        border: none;
+        padding: 0;
+    }
+
+    .navbar__toggle-bar {
+        height: 5px;
+        width: 100%;
+        background-color: rgb(var(--color-neutral-light));
+        border-radius: 25px;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+    
+    .navbar__toggle-bar:nth-child(1) {
+        top: 25%;
+    }
+
+    .navbar__toggle-bar:nth-child(3) {
+        top: 75%;
+    }
+
+    .navbar__toggle.active .navbar__toggle-bar {
+        background-color: rgb(var(--color-neutral-light));
+    }
+
+    .navbar__toggle.active .navbar__toggle-bar:nth-child(1) {
+        top: 50%;
+        transform: translate(-50%, -50%) rotate(45deg);
+    }
+
+    .navbar__toggle.active .navbar__toggle-bar:nth-child(2) {
+        opacity: 0;
+    }
+
+    .navbar__toggle.active .navbar__toggle-bar:nth-child(3) {
+        top: 50%;
+        transform: translate(-50%, -50%) rotate(-45deg);
+    }
+
+    /* Mobile Menu */
+    .navbar__menu {
+        background-color: rgba(var(--color-primary));
+        height: 100vh;
+        width: 80%;
+        position: fixed;
+        top: 0;
+        right: -100vw;
+        display: flex;
+        flex-direction: column;
+        align-items: center;    
+        justify-content: space-between;
+        padding: 6rem 0;
+        transition: right 0.3s ease;
+        font-size: medium;
+    }
+
+    .navbar__menu.active {
+        right: 0;
+    }
+}

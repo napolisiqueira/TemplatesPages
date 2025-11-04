@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Instituto Real Canino</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Encode+Sans+Semi+Condensed:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="assets/css/remedy.css">
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/pages/login.css">
+    <link rel="stylesheet" href="assets/css/utils.css">
+</head>
+<body>
+    <header class="site-header">
+        <nav class="navbar">
+            <ul class="navbar__menu">
+                <li class="navbar__item"><a href="index.html" class="navbar__link">Home</a></li>
+                <li class="navbar__item"><a href="how_to_help.html" class="navbar__link">Como Ajudar</a></li>
+                <li class="navbar__item"><a href="index.html#quem-somos" class="navbar__link">Quem somos</a></li>
+                <li class="navbar__item"><a href="activities.html" class="navbar__link">Atividades</a></li>
+                <li class="navbar__item"><a href="login.html" class="navbar__link">Login</a></li>
+            </ul>
+            <button class="navbar__toggle" aria-label="Toggle navigation menu">
+                <span class="navbar__toggle-bar"></span>
+                <span class="navbar__toggle-bar"></span>
+                <span class="navbar__toggle-bar"></span>
+            </button>
+            <div class="navbar__brand">
+                <a href="index.html" class="navbar__logo-link">
+                    <img src="assets/img/logo.png" alt="Logo Instituto Real Canino" class="navbar__logo-image">
+                    <h1 class="navbar__title">INSTITUTO REAL CANINO</h1>
+                </a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="login-page">
+        <div class="login-container">
+            <div class="login-box">
+                <div class="login-box__header">
+                    <img src="assets/img/logo.png" alt="Logo Instituto Real Canino" class="login-box__logo">
+                    <h2 class="login-box__title">Área Restrita</h2>
+                    <p class="login-box__subtitle">Acesse sua conta para gerenciar atividades</p>
+                </div>
+
+                <form id="loginForm" class="login-form">
+                    <div class="login-form__group">
+                        <label for="email" class="login-form__label">Email</label>
+                        <input type="email" id="email" name="email" class="login-form__input" required>
+                    </div>
+
+                    <div class="login-form__group">
+                        <label for="password" class="login-form__label">Senha</label>
+                        <div class="login-form__password-container">
+                            <input type="password" id="password" name="password" class="login-form__input" required>
+                            <button type="button" class="login-form__toggle-password" aria-label="Toggle password visibility">
+                                <span class="login-form__eye-icon"></span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="login-form__options">
+                        <label class="login-form__remember">
+                            <input type="checkbox" name="remember">
+                            <span>Lembrar-me</span>
+                        </label>
+                        <a href="#" class="login-form__forgot">Esqueceu a senha?</a>
+                    </div>
+
+                    <button type="submit" class="btn btn--primary btn--large login-form__submit">Entrar</button>
+                </form>
+
+                <div class="login-box__footer">
+                    <p class="login-box__help">Precisa de ajuda? <a href="#" class="login-box__help-link">Entre em contato</a></p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer__content">
+            <div class="footer__info">
+                <p class="footer__credit">Feito com 🖤 por <strong>Cibelly Lima</strong></p>
+                <p class="footer__legal">Instituto Regularizado de acordo com Código Civil Brasileiro e na Lei nº 9.790/1999</p>
+                <address class="footer__contact">
+                    <p class="footer__address">Rua Brasil, 1996 - Vila Real / SP- São Paulo</p>
+                    <p class="footer__phone">Telefone: (11) 22334-5566</p>
+                    <p class="footer__email">Email: institutorealcanino@org.com.br</p>
+                    <p class="footer__note">Entre em contato caso haja uma dúvida.</p>
+                </address>
+            </div>
+            <nav class="footer__nav">
+                <p class="footer__nav-title">MENU</p>
+                <ul class="footer__menu">
+                    <li class="footer__item"><a href="index.html" class="footer__link">Home</a></li>
+                    <li class="footer__item"><a href="how_to_help.html" class="footer__link">Como Ajudar</a></li>
+                    <li class="footer__item"><a href="index.html#quem-somos" class="footer__link">Quem somos</a></li>
+                    <li class="footer__item"><a href="activities.html" class="footer__link">Atividades</a></li>
+                    <li class="footer__item"><a href="login.html" class="footer__link">Login</a></li>
+                </ul>
+            </nav>
+        </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/login.js"></script>
+</body>
+</html>
